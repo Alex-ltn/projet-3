@@ -6,9 +6,9 @@ $BDD = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 if (isset($_GET['id']) AND $_GET['id'] > 0)
 {
     $getid = intval($_GET['id']);
-    $requser = $BDD->prepare("SELECT * FROM membes WHERE id = ?");
+    $requser = $BDD->prepare('SELECT * FROM membres WHERE id = ?');
     $requser->execute(array($getid));
-    $reqinfo = $requser->fetch();
+    $userinfo = $requser->fetch();
 }
 
 ?>
@@ -27,16 +27,19 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
     <h2>Votre profil</h2>
     <br /><br />
     <form method="POST" action="">
-        Pseudo = <?php echo $reqinfo['pseudo']; ?>
+        Pseudo = <?php echo $userinfo['pseudo']; ?>
         <br />
-        Mail = <?php echo $reqinfo['mail']; ?>
+        Mail = <?php echo $userinfo['mail']; ?>
 
     </form><br />
 
     <?php
-    if(isset($erreur ))
-    {
-        echo $erreur;
+        if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
+    ?>
+
+    <a href="deconnexion.php">Se déconnecter</a>
+
+    <?php
     }
     ?>
 </div>
