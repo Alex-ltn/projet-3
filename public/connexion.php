@@ -50,7 +50,7 @@ if (isset($_POST['formconnect']))
 <body>
 <div align= "center">
     <h2>Connection</h2>
-    <br /><br /><br/>
+    <br /><br />
     <form method="POST" action="">
         <input type="text" name="pseudoconnect" placeholder="Pseudo">
         <input type="password" name="mdpconnect" placeholder="Mot de passe">
