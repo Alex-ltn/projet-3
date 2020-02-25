@@ -1,0 +1,33 @@
+{
+  "name": "Alex-ltn/projet_3",
+  "version": "0.1.0",
+  "type": "project",
+  "description": "Projet réalisé lors d'une préparation FullStack d'OpenClassrooms",
+  "keywords": [
+    "extranet"
+  ],
+  "homepage": "",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alexandre LHOTELIN",
+      "email": "alexandre.lhotelin@gmail.com",
+      "homepage": "",
+      "role": "Développeur principal"
+    }
+  ],
+  "require": {
+    "php": "7.2",
+  },
+  "config": {
+    "platform": {
+      "php": "7.2"
+    }
+  },
+  "support": {
+    "email": "alexandre.lhotelin@gmail.com",
+    "issues": "https://github.com/Alex-ltn/projet_3/issues",
+    "wiki": "https://github.com/Alex-ltn/projet_3/wiki",
+    "source": "https://github.com/Alex-ltn/projet_3"
+  }
+}
