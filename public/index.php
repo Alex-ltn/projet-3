@@ -74,7 +74,7 @@ if(isset($_POST['forminscription']))
     <body>
         <div align= "center">
             <h2>Inscription</h2>
-            <br /><br /><br/>
+            <br /><br />
             <form method="POST" action="">
                 <table>
                    <tr>
