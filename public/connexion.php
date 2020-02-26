@@ -49,12 +49,46 @@ if (isset($_POST['formconnect']))
 
 <body>
 <div align= "center">
-    <h2>Connection</h2>
+    <h1>Connection à votre compte</h1>
     <br /><br />
+    <H3>Rentrez vos informations</H3>
     <form method="POST" action="">
-        <input type="text" name="pseudoconnect" placeholder="Pseudo">
-        <input type="password" name="mdpconnect" placeholder="Mot de passe">
-        <input type="submit" name="formconnect" value="Se connecter" />
+        <table>
+            <tr>
+                <td>
+                    <label>Votre pseudo :</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="pseudoconnect" placeholder="Pseudo">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Votre mot de passe :</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="password" name="mdpconnect" placeholder="Mot de passe">
+                </td>
+            </tr>
+
+        </table><br />
+
+        <input type="submit" name="formconnect" value="Se connecter" /><br />
+        <a href="mdp_oublie.php">Mot de passe oublié ?</a>
+        <br /><br />
+
+        <h3>Première visite sur ce site ?</h3>
+
+        <label>Pour vous connecter, veuillez vous créer un compte !</label><br /><br />
+
+        <form>
+            <button type="submit" formaction="inscription.php">S'inscrire</button>
+        </form>
 
     </form><br />
 
