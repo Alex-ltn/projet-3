@@ -30,7 +30,7 @@ if(isset($_POST['forminscription']))
                          if ($mdp == $mdp2) {
                              $insertmbr = $BDD->prepare("INSERT INTO membres(pseudo, mail, motdepasse) VALUES(?, ?, ?)");
                              $insertmbr->execute(array($pseudo, $mail, $mdp));
-                             $erreur = "Votre compte à bien été créé !";
+                             $erreur = "Votre compte à bien été créé ! <a href=\"connexion . php\"> Me connecter </a>";
                          } else {
                              $erreur = "Vos mots de passe ne correspondent pas !";
                          }
