@@ -24,7 +24,7 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
 
 <body>
 <div align= "center">
-    <h2>Votre profil</h2>
+    <h2>Votre profil</h2><h3> <?php echo $userinfo['prenom']; echo " "; echo $userinfo['nom']; ?> </h3>
     <br /><br />
     <form method="POST" action="">
         Pseudo = <?php echo $userinfo['pseudo']; ?>
@@ -37,7 +37,10 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
         if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
     ?>
 
-    <a href="deconnexion.php">Se déconnecter</a>
+            <form>
+                <button type="submit" formaction="parametre.php">Modifier profil</button>
+                <button type="submit" formaction="deconnexion.php">Se déconnecter</button>
+            </form>
 
     <?php
     }
