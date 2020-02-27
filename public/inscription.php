@@ -73,7 +73,7 @@ if(isset($_POST['forminscription']))
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Accueil</title>
 </head>
 
@@ -87,7 +87,7 @@ if(isset($_POST['forminscription']))
 
             <tr>
                 <td>
-                    <label>Pseudo :</label>
+                    <label class="h5">Pseudo :</label>
                 </td>
             </tr>
             <tr>
@@ -98,7 +98,7 @@ if(isset($_POST['forminscription']))
 
             <tr>
                 <td>
-                    <label>Mot de passe :</label>
+                    <label class="h5">Mot de passe :</label>
                 </td>
             </tr>
             <tr>
@@ -109,7 +109,7 @@ if(isset($_POST['forminscription']))
 
             <tr>
                 <td>
-                    <label>Confirmation mdp :</label>
+                    <label class="h5">Confirmation mdp :</label>
                 </td>
             </tr>
             <tr>
@@ -126,7 +126,7 @@ if(isset($_POST['forminscription']))
 
             <tr>
                 <td>
-                    <label>Prénom :</label>
+                    <label class="h5">Prénom :</label>
                 </td>
             </tr>
             <tr>
@@ -137,7 +137,7 @@ if(isset($_POST['forminscription']))
 
             <tr>
                 <td>
-                    <label>Nom :</label>
+                    <label class="h5">Nom :</label>
                 </td>
             </tr>
             <tr>
@@ -148,7 +148,7 @@ if(isset($_POST['forminscription']))
 
             <tr>
                 <td>
-                    <label>Mail :</label>
+                    <label class="h5">Mail :</label>
                 </td>
             </tr>
             <tr>
@@ -159,7 +159,7 @@ if(isset($_POST['forminscription']))
 
             <tr>
                 <td>
-                    <label>Question secrète :</label>
+                    <label class="h5">Question secrète :</label>
                 </td>
             </tr>
             <tr>
@@ -179,7 +179,7 @@ if(isset($_POST['forminscription']))
 
             <tr>
                 <td>
-                    <label>Réponse :</label>
+                    <label class="h5">Réponse :</label>
                 </td>
             </tr>
             <tr>

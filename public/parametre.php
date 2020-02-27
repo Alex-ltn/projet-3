@@ -3,8 +3,8 @@ session_start();
 
 $BDD = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 
-if (isset($_SESSION['id']))
-{
+if(isset($_SESSION['id'])) {
+
     $requser = $BDD->prepare("SELECT * FROM membres WHERE id = ?");
     $requser->execute(array($_SESSION['id']));
     $user = $requser->fetch();
@@ -32,42 +32,82 @@ if (isset($_SESSION['id']))
             $msg = "Vos deux mdp ne correspondent pas !";
         }
     }
+    ?>
+    <html>
+    <head>
+        <title>Parametre</title>
+        <link rel="stylesheet" href="./css/style.css" />
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <div align="center">
+        <h2>Édition de votre profil</h2>
+        <div align="center">
+            <form method="POST" action="" enctype="multipart/form-data">
+                <table>
 
-?>
+                    <tr>
+                        <td>
+                            <label class="h5">Pseudo :</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $user['pseudo']; ?>" /><br /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="h5">Mail :</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="newmail" placeholder="Mail" value="<?php echo $user['mail']; ?>" /><br /><br />
+                        </td>
+                    </tr>
 
-<!DOCTYPE html>
-<html>
+                    <tr>
+                        <td>
+                            <label class="h5">Mot de passe :</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" name="newmdp1" placeholder="Mot de passe"/><br /><br />
+                        </td>
+                    </tr>
 
-<head>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="style.css"/>
-    <title>Paramètre profil</title>
-</head>
+                    <tr>
+                        <td>
+                            <label class="h5">Confirmation :</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" name="newmdp2" placeholder="Confirmation mdp" /><br /><br />
+                        </td>
+                    </tr>
 
-<body>
-<div align="center">
-    <h2>Édition de votre profil</h2>
-    <br/><br/>
+                    <tr>
+                        <td>
+                            <br />
+                            <button type="submit" formaction="connexion.php">Retour</button>
+                            <input type="submit" value="Mettre à jour"/>
+                        </td>
+                    </tr>
 
-    <form method="get" action="">
-        <input type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $user['pseudo'] ?>"/><br/><br />
-        <input type="text" name="newmail" placeholder="Mail" value="<?php echo $user['mail'] ?>"/><br/><br />
-        <input type="text" name="newmdp1" placeholder="Mot de passe"/><br/><br />
-        <input type="text" name="newmdp2" placeholder="Confirmez mdp"/><br/><br />
-        <button type="submit" formaction="profil.php">retour</button>
-        <input type="submit" value="Mettre à jour"/><br/>
-    </form>
+                </table>
 
-    <?php if(isset($msg)) { echo $msg; } ?>
-
+            </form>
+            <?php if(isset($msg)) { echo $msg; } ?>
+        </div>
+    </div>
+    </body>
+    </html>
     <?php
-
-}else
-    {
-        header("location: connexion.php");
-    }
+}
+else {
+    header("Location: connexion.php");
+}
 ?>
-</div>
-</body>
-
-</html>
