@@ -7,15 +7,19 @@ if(isset($_SESSION['id'])) {
 
     $requser = $BDD->prepare("SELECT * FROM membres WHERE id = ?");
     $requser->execute(array($_SESSION['id']));
-    $user = $requser->fetch();
+    $userinfo = $requser->fetch();
 
-    if(isset($_POST['newpseudo']) AND !empty($_POST['newpseudo']) AND $_POST['newpseudo'] != $user['pseudo']) {
+    if (isset($_POST['submitBackButton'])) {
+        header('Location: profil.php?id='.$_SESSION['id']);
+    }
+
+    if(isset($_POST['newpseudo']) AND !empty($_POST['newpseudo']) AND $_POST['newpseudo'] != $userinfo['pseudo']) {
         $newpseudo = htmlspecialchars($_POST['newpseudo']);
         $insertpseudo = $BDD->prepare("UPDATE membres SET pseudo = ? WHERE id = ?");
         $insertpseudo->execute(array($newpseudo, $_SESSION['id']));
         header('Location: profil.php?id='.$_SESSION['id']);
     }
-    if(isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $user['mail']) {
+    if(isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $userinfo['mail']) {
         $newmail = htmlspecialchars($_POST['newmail']);
         $insertmail = $BDD->prepare("UPDATE membres SET mail = ? WHERE id = ?");
         $insertmail->execute(array($newmail, $_SESSION['id']));
@@ -53,7 +57,7 @@ if(isset($_SESSION['id'])) {
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $user['pseudo']; ?>" /><br /><br />
+                            <input type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $userinfo['pseudo']; ?>" /><br /><br />
                         </td>
                     </tr>
                     <tr>
@@ -63,7 +67,7 @@ if(isset($_SESSION['id'])) {
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="newmail" placeholder="Mail" value="<?php echo $user['mail']; ?>" /><br /><br />
+                            <input type="text" name="newmail" placeholder="Mail" value="<?php echo $userinfo['mail']; ?>" /><br /><br />
                         </td>
                     </tr>
 
@@ -88,18 +92,14 @@ if(isset($_SESSION['id'])) {
                             <input type="password" name="newmdp2" placeholder="Confirmation mdp" /><br /><br />
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>
-                            <br />
-                            <button type="submit" formaction="connexion.php">Retour</button>
-                            <input type="submit" value="Mettre à jour"/>
-                        </td>
-                    </tr>
-
                 </table>
-
+                <input type="submit" value="Mettre à jour"/>
             </form>
+
+            <form action="profil.php" method="post">
+                    <input name="submitBackButton" type="submit" value="Retour" />
+            </form>
+
             <?php if(isset($msg)) { echo $msg; } ?>
         </div>
     </div>

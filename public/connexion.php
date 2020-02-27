@@ -79,7 +79,7 @@ if (isset($_POST['formconnect']))
         </table><br />
 
         <input type="submit" name="formconnect" value="Se connecter" /><br />
-        <a href="mdp_oublie.php">Mot de passe oublié ?</a>
+        <a href="mdp_oublie_pseudo.php">Mot de passe oublié ?</a>
         <br /><br />
 
         <h3>Première visite sur ce site ?</h3>
