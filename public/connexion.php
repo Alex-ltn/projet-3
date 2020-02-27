@@ -43,7 +43,7 @@ if (isset($_POST['formconnect']))
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Connexion</title>
 </head>
 
@@ -56,7 +56,7 @@ if (isset($_POST['formconnect']))
         <table>
             <tr>
                 <td>
-                    <label>Votre pseudo :</label>
+                    <label class="h5">Votre pseudo :</label>
                 </td>
             </tr>
             <tr>
@@ -67,7 +67,7 @@ if (isset($_POST['formconnect']))
 
             <tr>
                 <td>
-                    <label>Votre mot de passe :</label>
+                    <label class="h5">Votre mot de passe :</label>
                 </td>
             </tr>
             <tr>
@@ -84,7 +84,7 @@ if (isset($_POST['formconnect']))
 
         <h3>Première visite sur ce site ?</h3>
 
-        <label>Pour vous connecter, veuillez vous créer un compte !</label><br /><br />
+        <label class="h5">Pour vous connecter, veuillez vous créer un compte !</label><br /><br />
 
         <form>
             <button type="submit" formaction="inscription.php">S'inscrire</button>

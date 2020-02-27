@@ -18,7 +18,7 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Profil</title>
 </head>
 
@@ -27,9 +27,9 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
     <h2>Votre profil</h2><h3> <?php echo $userinfo['prenom']; echo " "; echo $userinfo['nom']; ?> </h3>
     <br /><br />
     <form method="POST" action="">
-        Pseudo = <?php echo $userinfo['pseudo']; ?>
+        <label class="h5">Pseudo = <?php echo $userinfo['pseudo']; ?></label>
         <br />
-        Mail = <?php echo $userinfo['mail']; ?>
+        <label class="h5">Mail = <?php echo $userinfo['mail']; ?></label>
 
     </form><br />
 
