@@ -61,7 +61,7 @@ if (isset($_POST['formconnect']))
             </tr>
             <tr>
                 <td>
-                    <input type="text" size="53" name="pseudoconnect" placeholder="Pseudo">
+                    <input type="text" size="53" name="pseudoconnect" placeholder="Votre Pseudo">
                 </td>
             </tr>
 
@@ -72,7 +72,7 @@ if (isset($_POST['formconnect']))
             </tr>
             <tr>
                 <td>
-                    <input type="password" size="53" name="mdpconnect" placeholder="Mot de passe">
+                    <input type="password" size="53" name="mdpconnect" placeholder=" Votre Mot de passe">
                 </td>
             </tr>
 
