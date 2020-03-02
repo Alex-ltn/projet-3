@@ -13,7 +13,7 @@ $BDD = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
     <title>Mot de passe oublié</title>
 </head>
 

@@ -40,7 +40,7 @@ if(isset($_SESSION['id'])) {
     <html>
     <head>
         <title>Parametre</title>
-        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="../public/css/style.css" />
         <meta charset="utf-8">
     </head>
     <body>
@@ -57,7 +57,7 @@ if(isset($_SESSION['id'])) {
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $userinfo['pseudo']; ?>" /><br /><br />
+                            <input type="text" size="53" name="newpseudo" placeholder="Pseudo" value="<?php echo $userinfo['pseudo']; ?>" /><br /><br />
                         </td>
                     </tr>
                     <tr>
@@ -67,7 +67,7 @@ if(isset($_SESSION['id'])) {
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="newmail" placeholder="Mail" value="<?php echo $userinfo['mail']; ?>" /><br /><br />
+                            <input type="text" size="53" name="newmail" placeholder="Mail" value="<?php echo $userinfo['mail']; ?>" /><br /><br />
                         </td>
                     </tr>
 
@@ -78,7 +78,7 @@ if(isset($_SESSION['id'])) {
                     </tr>
                     <tr>
                         <td>
-                            <input type="password" name="newmdp1" placeholder="Mot de passe"/><br /><br />
+                            <input type="password" size="53" name="newmdp1" placeholder="Mot de passe"/><br /><br />
                         </td>
                     </tr>
 
@@ -89,7 +89,7 @@ if(isset($_SESSION['id'])) {
                     </tr>
                     <tr>
                         <td>
-                            <input type="password" name="newmdp2" placeholder="Confirmation mdp" /><br /><br />
+                            <input type="password" size="53" name="newmdp2" placeholder="Confirmation Mot de passe" /><br /><br />
                         </td>
                     </tr>
                 </table>

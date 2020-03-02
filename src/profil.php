@@ -18,7 +18,7 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
     <title>Profil</title>
 </head>
 

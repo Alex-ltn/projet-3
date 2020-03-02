@@ -2,6 +2,10 @@
 
 $BDD = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 
+if (isset($_POST['submitBackButton'])) {
+    header('Location: connexion.php');
+}
+
 if(isset($_POST['forminscription']))
 {
     $pseudo = htmlspecialchars($_POST['pseudo']);
@@ -73,7 +77,7 @@ if(isset($_POST['forminscription']))
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
     <title>Accueil</title>
 </head>
 
@@ -92,7 +96,7 @@ if(isset($_POST['forminscription']))
             </tr>
             <tr>
                 <td>
-                    <input type="text"  size="53" placeholder="Votre Pseudo" name="pseudo" value="<?php if(isset($pseudo)) { echo $pseudo; } ?>"/>
+                    <input type="text" size="53" placeholder="Votre Pseudo" name="pseudo" value="<?php if(isset($pseudo)) { echo $pseudo; } ?>"/>
                 </td>
             </tr>
 
@@ -114,7 +118,7 @@ if(isset($_POST['forminscription']))
             </tr>
             <tr>
                 <td>
-                    <input type="password" size="53" placeholder="Confirmez  votre mdp" name="mdp2" />
+                    <input type="password" size="53" placeholder="Confirmez  votre Mot de passe" name="mdp2" />
                 </td>
             </tr>
         </table><br />
@@ -164,7 +168,7 @@ if(isset($_POST['forminscription']))
             </tr>
             <tr>
                 <td>
-                    <select class="form-input form-select form-control" name="question" required>
+                    <select class="form-input form-select form-control" size="" name="question">
                         <option value="" selected>--- Selectionner une question ---</option>
                         <option value="Quel est le nom de mon premier animal domestique ?">Quel est le nom de mon premier animal domestique ?</option>
                         <option value="Quel est le nom du pays que j’aimerais le plus visiter ?">Quel est le nom du pays que j’aimerais le plus visiter ?</option>
@@ -184,15 +188,18 @@ if(isset($_POST['forminscription']))
             </tr>
             <tr>
                 <td>
-                    <input type="text" size="53" placeholder="Votre Réponse" name="reponse">
+                    <input type="text" size="53" size="40" placeholder="Votre Réponse" name="reponse">
                 </td>
             </tr>
 
         </table><br /><br />
 
         <input type="submit" name="forminscription" value="Je m'inscris" />
-
     </form><br />
+
+    <form action="connexion.php" method="post">
+        <input name="submitBackButton" type="submit" value="Retour" />
+    </form>
 
     <?php
     if(isset($erreur ))
