@@ -94,10 +94,7 @@ if(isset($_SESSION['id'])) {
                     </tr>
                 </table>
                 <input type="submit" value="Mettre à jour"/>
-            </form>
-
-            <form action="profil.php" method="post">
-                    <input name="submitBackButton" type="submit" value="Retour" />
+                <input name="submitBackButton" type="submit" value="Retour" />
             </form>
 
             <?php if(isset($msg)) { echo $msg; } ?>
