@@ -17,8 +17,6 @@ if (isset($_POST['formpseudo']))
         {
             $userinfo = $requser->fetch();
             $_SESSION['id'] = $userinfo['id'];
-            $_SESSION['pseudo'] = $userinfo['pseudo'];
-            $_SESSION['mail'] = $userinfo['mail'];
             $_SESSION['question'] = $userinfo['question'];
             header("Location: mdp_oublie_question.php?id=".$_SESSION['id']);
         }
@@ -31,7 +29,7 @@ if (isset($_POST['formpseudo']))
 
     else
     {
-        $erreur = "Le champs Pseudo doit être complété ! ";
+        $erreur = "Veuillez mettre votre pseudo ! ";
     }
 
 }
@@ -56,6 +54,7 @@ if (isset($_POST['formpseudo']))
         <label class="h5">Pseudo : </label>
         <input type="text" name="pseudomdp" placeholder=" Votre Pseudo" />
         <br /><br />
+
         <input type="submit" name="formpseudo" value="Suivant" />
 
         <br />
