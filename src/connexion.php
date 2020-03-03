@@ -12,7 +12,7 @@ if (isset($_POST['formconnect']))
     {
         $requser = $BDD->prepare("SELECT * FROM membres WHERE pseudo = ? AND motdepasse = ?");
         $requser->execute(array($pseudoconnect, $mdpconnect));
-        $userexist = $requser->rowCount();;
+        $userexist = $requser->rowCount();
 
 
         if ($userexist == 1)
