@@ -3,35 +3,25 @@ session_start();
 
 $BDD = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 
-if (isset($_POST['formpseudo']))
-{
+if (isset($_POST['formpseudo'])) {
     $pseudomdp = htmlspecialchars($_POST['pseudomdp']);
 
-    if (!empty($pseudomdp))
-    {
+    if (!empty($pseudomdp)) {
         $requser = $BDD->prepare("SELECT * FROM membres WHERE pseudo = ? ");
         $requser->execute(array($pseudomdp));
         $userexist = $requser->rowCount();;
 
-        if ($userexist == 1)
-        {
+        if ($userexist == 1) {
             $userinfo = $requser->fetch();
             $_SESSION['id'] = $userinfo['id'];
             $_SESSION['question'] = $userinfo['question'];
-            header("Location: mdp_oublie_question.php?id=".$_SESSION['id']);
-        }
-
-        else
-        {
+            header("Location: mdp_oublie_question.php?id=" . $_SESSION['id']);
+        } else {
             $erreur = "Votre pseudo est incorrect !";
         }
-    }
-
-    else
-    {
+    } else {
         $erreur = "Veuillez mettre votre pseudo ! ";
     }
-
 }
 
 ?>
@@ -70,5 +60,4 @@ if (isset($_POST['formpseudo']))
 
 </div>
 </body>
-
 </html>
