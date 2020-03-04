@@ -22,7 +22,7 @@ if(isset($_SESSION['id'])) {
     }
 
     if (isset($_POST['submitStop'])) {
-        header('Location: connexion.php');
+        header('Location: deconnexion.php');
     }
 
 ?>

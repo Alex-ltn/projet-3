@@ -3,6 +3,10 @@ session_start();
 
 $BDD = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 
+if (isset($_POST['submitStop'])) {
+    header('Location: deconnexion.php');
+}
+
 if(isset($_SESSION['id'])) {
 
     if (isset($_GET['id']) AND $_GET['id'] > 0)     // Récupération de la question secrète
@@ -58,6 +62,7 @@ if(isset($_SESSION['id'])) {
         <input type="text" name="reponsemdp" placeholder=" Votre Réponse" />
         <br /><br />
         <input type="submit" name="formquestion" value="Suivant" />
+        <input name="submitStop" type="submit" value="Annuler" />
 
         <br />
 

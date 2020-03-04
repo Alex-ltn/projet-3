@@ -195,11 +195,9 @@ if(isset($_POST['forminscription']))
         </table><br /><br />
 
         <input type="submit" name="forminscription" value="Je m'inscris" />
-    </form><br />
-
-    <form action="connexion.php" method="post">
         <input name="submitBackButton" type="submit" value="Retour" />
     </form>
+    <br />
 
     <?php
     if(isset($erreur ))

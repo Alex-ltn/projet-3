@@ -24,6 +24,10 @@ if (isset($_POST['formpseudo'])) {
     }
 }
 
+if (isset($_POST['submitStop'])) {
+    header('Location: connexion.php');
+}
+
 ?>
 
 
@@ -46,6 +50,7 @@ if (isset($_POST['formpseudo'])) {
         <br /><br />
 
         <input type="submit" name="formpseudo" value="Suivant" />
+        <input name="submitStop" type="submit" value="Annuler" />
 
         <br />
 
