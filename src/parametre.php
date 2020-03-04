@@ -40,7 +40,7 @@ if(isset($_SESSION['id'])) {
     <html>
     <head>
         <title>Parametre</title>
-        <link rel="stylesheet" href="../public/css/style.css" />
+        <link rel="stylesheet" href="../public/css/bootstrap.css" />
         <meta charset="utf-8">
     </head>
     <body>

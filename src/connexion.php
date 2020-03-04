@@ -36,6 +36,10 @@ if (isset($_POST['formconnect']))
     }
 }
 
+if (isset($_POST['submitReg'])) {
+    header('Location: inscription.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +47,7 @@ if (isset($_POST['formconnect']))
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="../public/css/bootstrap.css" />
     <title>Connexion</title>
 </head>
 
@@ -86,9 +90,7 @@ if (isset($_POST['formconnect']))
 
         <label class="h5">Pour vous connecter, veuillez vous créer un compte !</label><br /><br />
 
-        <form>
-            <button type="submit" formaction="inscription.php">S'inscrire</button>
-        </form>
+        <input type="submit" name="submitReg" value="S'inscrire">
 
     </form><br />
 

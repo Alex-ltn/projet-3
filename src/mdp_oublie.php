@@ -33,7 +33,7 @@ if(isset($_SESSION['id'])) {
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="../public/css/bootstrap.css" />
     <title>Mot de passe oublié</title>
 </head>
 

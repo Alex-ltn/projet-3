@@ -77,7 +77,7 @@ if(isset($_POST['forminscription']))
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="../public/css/bootstrap.css" />
     <title>Accueil</title>
 </head>
 
