@@ -25,17 +25,19 @@ if(isset($_POST['forminscription']))
             if ($nom <= 255) {
                 $pseuolength = strlen($pseudo);
                 if ($pseudo <= 255) {
+
                     $reqpseudo = $BDD->prepare("SELECT * FROM membres WHERE pseudo = ?");       /* pour savoir si mail déjà utilisée */
                     $reqpseudo->execute(array($pseudo));
                     $pseudoexist = $reqpseudo->rowCount();
-
                     if ($pseudoexist == 0) {
+
                         if (filter_var($mail, FILTER_VALIDATE_EMAIL))        /* adresse mail valide (protection) */ {
+
                             $reqmail = $BDD->prepare("SELECT * FROM membres WHERE mail = ?");       /* pour savoir si mail déjà utilisée */
                             $reqmail->execute(array($mail));
                             $mailexist = $reqmail->rowCount();
-
                             if ($mailexist == 0) {
+
                                 if ($mdp == $mdp2) {
                                     $insertmbr = $BDD->prepare("INSERT INTO membres(pseudo, mail, motdepasse, prenom, nom, question, reponse) VALUES(?, ?, ?, ?, ?, ?, ?)");
                                     $insertmbr->execute(array($pseudo, $mail, $mdp, $prenom, $nom, $question, $reponse));
@@ -72,140 +74,87 @@ if(isset($_POST['forminscription']))
 
 ?>
 
-<!DOCTYPE html>
-<html>
+<?php require 'layout/header.php' ?>
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../public/css/bootstrap.css" />
-    <title>Accueil</title>
-</head>
+</header>
 
-<body>
-<div align= "center">
-    <h1>Création d'un compte utilsateur</h1>
-    <br /><br />
-    <h3>Créer un compte</h3>
-    <form method="POST" action="">
-        <table>
+<main>
 
-            <tr>
-                <td>
-                    <label class="h5">Pseudo :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" size="53" placeholder="Votre Pseudo" name="pseudo" value="<?php if(isset($pseudo)) { echo $pseudo; } ?>"/>
-                </td>
-            </tr>
+<form method="POST" action="">
+    <div class="card border-primary mb-3" align="center">
+        <div class="card-header">Créer un compte</div>
+        <div class="card-body">
+            <p class="card-text">
+                <label class="h5">Pseudo :</label>
+                <input type="text" class="form-input form-control" placeholder="Votre Pseudo" name="pseudo" value="<?php if(isset($pseudo)) { echo $pseudo; } ?>" />
+            </p>
+            <p class="card-text">
+                <label class="h5">Mot de passe :</label>
+                <input type="password" class="form-input form-control" placeholder="Votre Mot de passe" name="mdp" />
+            </p>
+            <p class="card-text">
+                <label class="h5">Confirmation mot de passe :</label>
+                <input type="password" class="form-input form-control" placeholder="Confirmez votre mot de passe" name="mdp2" />
+            </p>
+        </div>
+    </div>
 
-            <tr>
-                <td>
-                    <label class="h5">Mot de passe :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="password" size="53" placeholder="Votre Mot de passe" name="mdp" />
-                </td>
-            </tr>
+    <div class="card border-primary mb-3" align="center">
+        <div class="card-header">Détails du compte</div>
+        <div class="card-body">
+            <p class="card-text">
+                <label class="h5">Prénom :</label>
+                <input type="text" class="form-input form-control" placeholder="Votre Prénom" name="prenom" © />
+            </p>
+            <p class="card-text">
+                <label class="h5">Nom :</label>
+                <input type="text" class="form-input form-control" placeholder="Votre Nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>" />
+            </p>
+            <p class="card-text">
+                <label class="h5">Email :</label>
+                <input type="text" class="form-input form-control" placeholder="Votre Email" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" />
+            </p>
+            <p class="card-text">
+                <label class="h5">Question secrète :</label>
+                <select class="form-input form-select form-control" size="" name="question">
+                    <option value="" selected> --- Selectionner une question ---</option>
+                    <option value="Quel est le nom de mon premier animal domestique ?">Quel est le nom de mon premier animal domestique ?</option>
+                    <option value="Quel est le nom du pays que j’aimerais le plus visiter ?">Quel est le nom du pays que j’aimerais le plus visiter ?</option>
+                    <option value="Quel est le nom du personnage historique que j’admire le plus ?">Quel est le nom du personnage historique que j’admire le plus ?</option>
+                    <option value="Quelle est la marque du premier véhicule que j’ai conduit ?">Quelle est la  marque du premier véhicule que j’ai conduit ?</option>
+                    <option value ="Quelle est votre couleur préférée ?">Quelle est votre couleur préférée ?</option>
+                    <option value ="Quelle est votre équipe sportive favorite ?">Quelle est votre équipe sportive favorite ?</option>
+                    <option value ="Quel était le métier de votre grand-père ?">Quel était le métier de votre grand-père ?</option>
+                </select>
+            </p>
+            <p class="card-text">
+                <label class="h5">Réponse :</label>
+                <input type="text" class="form-input form-control" placeholder="Votre Réponse" name="reponse">
+            </p>
+        </div>
+    </div>
 
-            <tr>
-                <td>
-                    <label class="h5">Confirmation mdp :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="password" size="53" placeholder="Confirmez  votre Mot de passe" name="mdp2" />
-                </td>
-            </tr>
-        </table><br />
+    <div align="center">
+        <form method="post" action="">
+            <input type="submit" name="forminscription" class="btn btn-outline-danger" value="Je m'inscris" />
+            <input name="submitBackButton" type="submit" class="btn btn-outline-dark" value="Retour" />
+        </form>
+    </div>
 
-        <h3>Détails du compte</h3>
-
-        <table>
+</form>
 
 
-            <tr>
-                <td>
-                    <label class="h5">Prénom :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" size="53" placeholder="Votre Prénom" name="prenom" value="<?php if(isset($prenom)) { echo $prenom; } ?>">
-                </td>
-            </tr>
+<br />
 
-            <tr>
-                <td>
-                    <label class="h5">Nom :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" size="53" placeholder="Votre Nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>">
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <label class="h5">Mail :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="email" size="53" placeholder="Votre Mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>"/>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <label class="h5">Question secrète :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <select class="form-input form-select form-control" size="" name="question">
-                        <option value="" selected>--- Selectionner une question ---</option>
-                        <option value="Quel est le nom de mon premier animal domestique ?">Quel est le nom de mon premier animal domestique ?</option>
-                        <option value="Quel est le nom du pays que j’aimerais le plus visiter ?">Quel est le nom du pays que j’aimerais le plus visiter ?</option>
-                        <option value="Quel est le nom du personnage historique que j’admire le plus ?">Quel est le nom du personnage historique que j’admire le plus ?</option>
-                        <option value="Quelle est la marque du premier véhicule que j’ai conduit ?">Quelle est la  marque du premier véhicule que j’ai conduit ?</option>
-                        <option value ="Quelle est votre couleur préférée ?">Quelle est votre couleur préférée ?</option>
-                        <option value ="Quelle est votre équipe sportive favorite ?">Quelle est votre équipe sportive favorite ?</option>
-                        <option value ="Quel était le métier de votre grand-père ?">Quel était le métier de votre grand-père ?</option>
-                    </select>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <label class="h5">Réponse :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" size="53" size="40" placeholder="Votre Réponse" name="reponse">
-                </td>
-            </tr>
-
-        </table><br /><br />
-
-        <input type="submit" name="forminscription" value="Je m'inscris" />
-        <input name="submitBackButton" type="submit" value="Retour" />
-    </form>
-    <br />
-
-    <?php
+<?php
     if(isset($erreur ))
     {
         echo $erreur;
     }
-    ?>
-</div>
-</body>
+?>
 
-</html>
+</main>
+
+<?php require 'layout/footer.php' ?>
+
+

@@ -30,31 +30,30 @@ if (isset($_POST['submitStop'])) {
 
 ?>
 
+<?php require 'layout/header.php' ?>
 
-<!DOCTYPE html>
-<html>
+</header>
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../public/css/bootstrap.css" />
-    <title>Mot de passe oublié</title>
-</head>
-
-<body>
-<div align= "center">
-    <h2>Récupération du nom d'utilisateur</h2>
-    <br /><br />
+<main>
     <form method="POST" action="">
-        <label class="h5">Pseudo : </label>
-        <input type="text" name="pseudomdp" placeholder=" Votre Pseudo" />
-        <br /><br />
-
-        <input type="submit" name="formpseudo" value="Suivant" />
-        <input name="submitStop" type="submit" value="Annuler" />
-
+        <div class="card border-primary mb-3">
+            <div class="card-header">Récupération du nom d'utilisateur</div>
+            <div class="card-body">
+                <p class="card-title">Pour changer votre mot de passe, veuillez d'abord renseigner votre Pseudo.</p>
+                <p class="card-text">
+                    <label class="h5">Pseudo :</label>
+                    <input class="form-input form-control" type="text" name="pseudomdp" placeholder=" Votre Pseudo">
+                </p>
+            </div>
         <br />
-
-    </form><br />
+            <div align="center">
+                <form method="post" action="">
+                    <input type="submit" class="btn btn-outline-danger" name="formpseudo" value="Suivant" />
+                    <input name="submitStop" class="btn btn-outline-dark" type="submit" value="Annuler" />
+                    <br /><br />
+                </form>
+            </div>
+    </form>
 
     <?php
     if(isset($erreur ))
@@ -63,6 +62,6 @@ if (isset($_POST['submitStop'])) {
     }
     ?>
 
-</div>
-</body>
-</html>
+</main>
+
+<?php require 'layout/footer.php' ?>

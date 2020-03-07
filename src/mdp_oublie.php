@@ -3,6 +3,11 @@ session_start();
 
 $BDD = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 
+if (isset($_POST['submitStop'])) {
+    header('Location:deconnexion.php');
+}
+
+
 if(isset($_SESSION['id'])) {
 
     if (isset($_POST['formmdp'])) {
@@ -21,52 +26,51 @@ if(isset($_SESSION['id'])) {
         }
     }
 
-    if (isset($_POST['submitStop'])) {
-        header('Location: deconnexion.php');
-    }
-
 ?>
 
+<?php require 'layout/header.php' ?>
 
-<!DOCTYPE html>
-<html>
+</header>
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../public/css/bootstrap.css" />
-    <title>Mot de passe oublié</title>
-</head>
-
-<body>
-<div align= "center">
-    <h2>Réinitialisez votre mot de passe</h2>
-    <br /><br />
+<main>
     <form method="POST" action="">
-        <label class="h5">Mot de passe : </label>
-        <input type="text" name="newmdp1" placeholder="Votre nouveau Mot de passe" /><br />
-        <label class="h5">Mot de passe : </label>
-        <input type="text" name="newmdp2" placeholder="Confirmer votre Mot de passe" />
-        <br /><br />
-        <input type="submit" name="formmdp" value="Enregistrer" />
-        <input name="submitStop" type="submit" value="Annuler" />
+        <div class="card border-primary mb-3">
+            <div class="card-header">Réinitialiser votre mot de passe</div>
+            <div class="card-body">
+                <p class="card-text">
+                    <label class="h5">Mot de passe :</label>
+                    <input class="form-input form-control" type="text" name="newmdp1" placeholder="Votre nouveau Mot de passe">
+                </p>
+                <p class="card-text">
+                    <label class="h5">Mot de passe :</label>
+                    <input class="form-input form-control" type="text" name="newmdp2" placeholder="Confirmez votre Mot de passe">
+                </p>
+            </div>
+            <br />
+            <div align="center">
+                <form method="post" action="">
+                    <input type="submit" class="btn btn-outline-danger" name="formmdp" value="Enregistrer" />
+                    <input name="submitStop" class="btn btn-outline-dark" type="submit" value="Annuler" />
+                    <br /><br />
+                </form>
+            </div>
+        </div>
+    </form>
 
-        <br />
-
-    </form><br />
-
-    <?php
+<?php
     if(isset($erreur ))
     {
         echo $erreur;
     }
-    ?>
+?>
 
-</div>
-</body>
-</html>
 <?php
 }
 else {
     header("Location: connexion.php");
 }
 ?>
+
+</main>
+
+<?php require 'layout/footer.php' ?>

@@ -37,74 +37,59 @@ if(isset($_SESSION['id'])) {
         }
     }
     ?>
-    <html>
-    <head>
-        <title>Parametre</title>
-        <link rel="stylesheet" href="../public/css/bootstrap.css" />
-        <meta charset="utf-8">
-    </head>
-    <body>
-    <div align="center">
-        <h2>Édition de votre profil</h2>
-        <div align="center">
-            <form method="POST" action="" enctype="multipart/form-data">
-                <table>
 
-                    <tr>
-                        <td>
-                            <label class="h5">Pseudo :</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="text" size="53" name="newpseudo" placeholder="Pseudo" value="<?php echo $userinfo['pseudo']; ?>" /><br /><br />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label class="h5">Mail :</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="text" size="53" name="newmail" placeholder="Mail" value="<?php echo $userinfo['mail']; ?>" /><br /><br />
-                        </td>
-                    </tr>
+<?php require 'layout/header.php' ?>
 
-                    <tr>
-                        <td>
-                            <label class="h5">Mot de passe :</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="password" size="53" name="newmdp1" placeholder="Mot de passe"/><br /><br />
-                        </td>
-                    </tr>
+        <h4><?php echo $userinfo['prenom']; ?><?php echo " "; ?><?php echo $userinfo['nom']; ?></h4>
+        <a href="deconnexion.php">Se déconnecter</a>
+    </div>
+</header>
 
-                    <tr>
-                        <td>
-                            <label class="h5">Confirmation :</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="password" size="53" name="newmdp2" placeholder="Confirmation Mot de passe" /><br /><br />
-                        </td>
-                    </tr>
-                </table>
-                <input type="submit" value="Mettre à jour"/>
-                <input name="submitBackButton" type="submit" value="Retour" />
-            </form>
+<br />
 
+<main>
+    <form method="POST" action="">
+        <div class="card border-primary mb-3">
+            <div class="card-header">Édition de votre profil</div>
+            <div class="card-body">
+                <p class="card-title">Ici, vous pouvez changer vos informations, Pseudo, Email ou votre Mot de passe !</p>
+                <p class="card-text">
+                    <label class="h5">Pseudo :</label>
+                    <input class="form-input form-control" type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $userinfo['pseudo']?>">
+                </p>
+                <p class="card-text">
+                    <label class="h5">Email :</label>
+                    <input class="form-input form-control" type="text" name="newmail" placeholder="Email" value="<?php echo $userinfo['mail']?>">
+                </p>
+                <p class="card-text">
+                    <label class="h5">Mot de passe :</label>
+                    <input class="form-input form-control" type="password" name="newmdp1" placeholder="Mot de passe">
+                </p>
+                <p class="card-text">
+                    <label class="h5">Confirmation Mot de passe :</label>
+                    <input class="form-input form-control" type="password" name="newmdp2" placeholder="Confirmation Mot de passe">
+                </p>
+            </div>
+            <div align="center">
+                <form method="post" action="">
+                    <input type="submit" class="btn btn-outline-danger" value="Mettre à jour">
+                    <input type="submit" name="submitBackButton" class="btn btn-outline-dark" value="Retour">
+                    <br /><br />
+                </form>
+            </div>
             <?php if(isset($msg)) { echo $msg; } ?>
         </div>
-    </div>
-    </body>
-    </html>
-    <?php
+    </form>
+
+            <?php if(isset($msg)) { echo $msg; } ?>
+
+<?php
 }
 else {
     header("Location: connexion.php");
 }
 ?>
+
+</main>
+
+<?php require 'layout/footer.php' ?>

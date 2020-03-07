@@ -41,46 +41,49 @@ if(isset($_SESSION['id'])) {
 
 ?>
 
+<?php require 'layout/header.php' ?>
 
-<!DOCTYPE html>
-<html>
+</header>
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../public/css/bootstrap.css" />
-    <title>Mot de passe oublié</title>
-</head>
-
-<body>
-<div align= "center">
-    <h2>Répondre à la question de sécurité</h2>
-    <br /><br />
+<main>
     <form method="POST" action="">
-        <?php echo $userinfo['pseudo'] ?><br />
-        <?php echo $userinfo['question'] ?><br />
-        <label class="h5">Réponse : </label>
-        <input type="text" name="reponsemdp" placeholder=" Votre Réponse" />
-        <br /><br />
-        <input type="submit" name="formquestion" value="Suivant" />
-        <input name="submitStop" type="submit" value="Annuler" />
+        <div class="card border-primary mb-3">
+            <div class="card-header">Répondre à la question de sécurité</div>
+            <div class="card-body">
+                <p class="card-title">Pour changer votre mot de passe, veuillez d'abord répondre à la question de sécurité.
+                    <br /><br />
+                    <?php echo $userinfo['question'] ?>
+                </p>
+                <p class="card-text">
+                    <label class="h5">Réponse :</label>
+                    <input class="form-input form-control" type="text" name="reponsemdp" placeholder=" Votre Réponse">
+                </p>
+            </div>
+            <br />
+            <div align="center">
+                <form method="post" action="">
+                    <input type="submit" class="btn btn-outline-danger" name="formquestion" value="Suivant" />
+                    <input name="submitStop" class="btn btn-outline-dark" type="submit" value="Annuler" />
+                    <br /><br />
+                </form>
+            </div>
+    </form>
 
-        <br />
-
-    </form><br />
-
-    <?php
+<?php
     if(isset($erreur ))
     {
         echo $erreur;
     }
-    ?>
+?>
 
-</div>
-</body>
-</html>
+
 <?php
 }
 else {
     header("Location: connexion.php");
 }
 ?>
+
+</main>
+
+<?php require 'layout/footer.php' ?>

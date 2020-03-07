@@ -13,39 +13,44 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
 
 ?>
 
-<!DOCTYPE html>
-<html>
+<?php require 'layout/header.php' ?>
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../public/css/bootstrap.css" />
-    <title>Profil</title>
-</head>
+        <h4><?php echo $userinfo['prenom']; ?><?php echo " "; ?><?php echo $userinfo['nom']; ?></h4>
+        <a href="deconnexion.php">Se déconnecter</a>
+    </div>
+</header>
 
-<body>
-<div align= "center">
-    <h2>Votre profil</h2><h3> <?php echo $userinfo['prenom']; echo " "; echo $userinfo['nom']; ?> </h3>
-    <br /><br />
-    <form method="POST" action="">
-        <label class="h5">Pseudo = <?php echo $userinfo['pseudo']; ?></label>
-        <br />
-        <label class="h5">Mail = <?php echo $userinfo['mail']; ?></label>
+<br />
 
-    </form><br />
+<main>
+
+<div method="POST" action="" align="center">
+    <div class="card border-primary mb-3">
+        <div class="card-header">Votre profil</div>
+            <div class="card-body">
+                <label class="h5">Pseudo = <?php echo $userinfo['pseudo']; ?></label><br />
+                <label class="h5">Mail = <?php echo $userinfo['mail']; ?></label><br />
+            </div>
 
     <?php
         if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
     ?>
 
-            <form>
-                <button type="submit" formaction="parametre.php">Modifier profil</button>
-                <button type="submit" formaction="deconnexion.php">Se déconnecter</button>
-            </form>
+            <div>
+                <form method="post" action="">
+                  <button type="submit" formaction="parametre.php" class="btn btn-outline-danger">Modifier profil</button>
+                  <button type="submit" formaction="deconnexion.php" class="btn btn-outline-dark">Se déconnecter</button>
+                </form>
+                  <br />
+            </div>
 
     <?php
     }
     ?>
-</div>
-</body>
 
-</html>
+    </div>
+</form>
+</div>
+</main>
+
+<?php require 'layout/footer.php' ?>

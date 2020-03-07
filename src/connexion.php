@@ -42,65 +42,52 @@ if (isset($_POST['submitReg'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html>
+<?php require 'layout/header.php' ?>
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../public/css/bootstrap.css" />
-    <title>Connexion</title>
-</head>
+</header>
 
-<body>
-<div align= "center">
-    <h1>Connection à votre compte</h1>
-    <br /><br />
-    <H3>Rentrez vos informations</H3>
-    <form method="POST" action="">
-        <table>
-            <tr>
-                <td>
-                    <label class="h5">Votre pseudo :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" size="53" name="pseudoconnect" placeholder="Votre Pseudo">
-                </td>
-            </tr>
+<main>
+<form method="POST" action="">
+    <div class="card border-primary mb-3">
+        <div class="card-header">Connexion</div>
+            <div class="card-body">
+                <p class="card-title">Pour accéder aux information du site, renseignez votre Pseudo et votre Mot de passe</p>
+                <p class="card-text">
+                    <label class="h5">Pseudo :</label>
+                    <input class="form-input form-control" type="text" name="pseudoconnect" placeholder=" Votre Pseudo" required>
+                </p>
+                <p class="card-text">
+                    <label class="h5">Mot de passe :</label>
+                    <input class="form-input form-control" type="password" name="mdpconnect" placeholder=" Votre Mot de passe" required>
+                </p>
+            </div>
+            <div align="center">
+                <form method="post" action="">
+                    <input type="submit" name="formconnect" class="btn btn-outline-danger" value="Se connecter">
+                </form>
+            </div>
+            <a class="btn btn-link" href="mdp_oublie_pseudo.php">Vous avez oublié votre mot de passe ?</a>
+        <?php
+        if(isset($erreur ))
+        {
+            echo $erreur;
+        }
+        ?>
+    </div>
+</form>
 
-            <tr>
-                <td>
-                    <label class="h5">Votre mot de passe :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="password" size="53" name="mdpconnect" placeholder=" Votre Mot de passe">
-                </td>
-            </tr>
-
-        </table><br />
-
-        <input type="submit" name="formconnect" value="Se connecter" /><br />
-        <a href="mdp_oublie_pseudo.php">Mot de passe oublié ?</a>
-        <br /><br />
-
-        <h3>Première visite sur ce site ?</h3>
-
-        <label class="h5">Pour vous connecter, veuillez vous créer un compte !</label><br /><br />
-
-        <input type="submit" name="submitReg" value="S'inscrire">
-
-    </form><br />
-
-    <?php
-    if(isset($erreur ))
-    {
-        echo $erreur;
-    }
-    ?>
+<div class="card border-primary mb-3">
+    <div class="card-header">Première visite sur ce site ?</div>
+    <div class="card-body">
+        <p class="card-title">Pour vous connecter, veuillez vous créer un compte !</p>
+    </div>
+    <div align="center">
+        <form method="post" action="">
+            <input type="submit" name="submitReg" class="btn btn-outline-danger" value="S'inscire">
+        </form>
+        <br />
+    </div>
 </div>
-</body>
+</main>
 
-</html>
+<?php require 'layout/footer.php' ?>
