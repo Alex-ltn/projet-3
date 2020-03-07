@@ -1,7 +1,6 @@
 <?php
-session_start();
 
-$BDD = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
+require('../config/db.php');
 
 if (isset($_GET['id']) AND $_GET['id'] > 0)
 {
@@ -10,6 +9,15 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
     $requser->execute(array($getid));
     $userinfo = $requser->fetch();
 }
+
+if (isset($_POST['submitPara'])) {
+    header('Location: parametre.php');
+}
+
+if (isset($_POST['submitDeco'])) {
+    header('Location: deconnexion.php');
+}
+
 
 ?>
 
@@ -21,9 +29,7 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
 </header>
 
 <br />
-
 <main>
-
 <div method="POST" action="" align="center">
     <div class="card border-primary mb-3">
         <div class="card-header">Votre profil</div>
@@ -38,10 +44,10 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
 
             <div>
                 <form method="post" action="">
-                  <button type="submit" formaction="parametre.php" class="btn btn-outline-danger">Modifier profil</button>
-                  <button type="submit" formaction="deconnexion.php" class="btn btn-outline-dark">Se déconnecter</button>
+                  <button type="submit" name="submitPara" class="btn btn-outline-danger">Modifier</button>
+                  <button type="submit" name="submitDeco" class="btn btn-outline-dark">Se déconnecter</button>
                 </form>
-                  <br />
+                <br />
             </div>
 
     <?php
@@ -50,7 +56,6 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
 
     </div>
 </form>
-</div>
 </main>
 
 <?php require 'layout/footer.php' ?>

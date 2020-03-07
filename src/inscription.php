@@ -1,6 +1,6 @@
 <?php
 
-$BDD = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
+require_once('../config/db.php');
 
 if (isset($_POST['submitBackButton'])) {
     header('Location: connexion.php');
