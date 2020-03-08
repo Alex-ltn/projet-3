@@ -1,3 +1,23 @@
+<?php
+
+if (isset($_GET['id']) AND $_GET['id'] > 0)
+{
+    $getid = intval($_GET['id']);
+    $requser = $BDD->prepare('SELECT * FROM membres WHERE id = ?');
+    $requser->execute(array($getid));
+    $userinfo = $requser->fetch();
+}
+
+if (isset($_POST['submitProfil'])) {
+    header("Location: profil.php?id=".$_SESSION['id']);
+}
+
+if (isset($_POST['submitDeco'])) {
+    header('Location: deconnexion.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -15,19 +35,30 @@
     if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
         ?>
 
-          <div align="center">
-                <a href="connexion.php"><img src="../public/img/partenaires/logo.png" alt="logo1" /></a>
+    <div align="center">
+        <a href="connexion.php"><img src="../public/img/partenaires/logo.png" alt="logo1" /></a>
         <ul>
-        <li><h5>  <?php echo $userinfo['prenom']; ?><?php echo " "; ?><?php echo $userinfo['nom']; ?>  </h5></li>
-    <li><a href="parametre.php">Paramètres du compte</a></li>
-    <li><a href="deconnexion.php">Se déconnecter</a></li>
-    </ul>
+            <li><h5><?php echo $userinfo['prenom']; ?><?php echo " "; ?><?php echo $userinfo['nom']; ?>  </h5></li>
+            <li>
+                <form method="post" action="">
+                    <button type="submit" name="submitProfil">Paramètres du compte</button>
+                </form>
+            </li>
+            <li>
+                <form method="post" action="">
+                    <button type="submit" name="submitDeco">Se déconnecter</button>
+                </form>
+            </li>
+        </ul>
     </div>
+
     <?php
     }
     else { ?>
+
         <div align="center">
             <a href="connexion.php"><img src="../public/img/partenaires/logo.png" alt="logo1" /></a>
+            <br /><br />
     <?php }
     ?>
 
