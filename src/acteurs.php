@@ -10,6 +10,19 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
     $userinfo = $requser->fetch();
 }
 
+if (isset($_POST['submitCde'])) {
+    header("Location: cde.php?id=".$_SESSION['id']);
+}
+if (isset($_POST['submitDsa'])) {
+    header("Location: dsa.php?id=".$_SESSION['id']);
+}
+if (isset($_POST['submitFormation'])) {
+    header("Location: formation.php?id=".$_SESSION['id']);
+}
+if (isset($_POST['submitProtect'])) {
+    header("Location: protectpeople.php?id=".$_SESSION['id']);
+}
+
 ?>
 
 <?php require 'layout/header.php' ?>
@@ -34,15 +47,18 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
             <table>
                 <tr>
                     <td>
-                        <a href="acteurs.php"><img src="../public/img/partenaires/CDE.png"></a>
+                        <a href="cde.php"><img src="../public/img/partenaires/CDE.png"></a>
                     </td>
                     <td>
                         <p class="card-text">La CDE (Chambre Des Entrepreneurs) accompagne les entreprises dans leurs démarches de formation. Son président est élu pour 3 ans par ses pairs, chefs d’entreprises et présidents des CDE.</p>
                     </td>
                 </tr>
             </table>
-            <div class="link" align="right">
-                <a href="acteurs.php?acteurs=" class="btn btn-link">lire la suite</a>
+            <div align="right" class="link">
+                <form method="post" action="">
+                    <button type="submit" class="btn btn-link" name="submitCde">Lire la suite</button>
+                </form>
+                <br />
             </div>
             <br />
             </div>
@@ -57,8 +73,11 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
                     </td>
                 </tr>
             </table>
-            <div class="link" align="right">
-                <a href="acteurs.php?acteurs=" class="btn btn-link">lire la suite</a>
+            <div align="right" class="link">
+                <form method="post" action="">
+                    <button type="submit" class="btn btn-link" name="submitDsa">Lire la suite</button>
+                </form>
+                <br />
             </div>
         </div>
         <div class="card mb-3 border-primary">
@@ -72,8 +91,11 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
                     </td>
                 </tr>
             </table>
-            <div class="link" align="right">
-                <a href="acteurs.php?acteurs=" class="btn btn-link">lire la suite</a>
+            <div align="right" class="link">
+                <form method="post" action="">
+                    <button type="submit" class="btn btn-link" name="submitFormation">Lire la suite</button>
+                </form>
+                <br />
             </div>
         </div>
         <div class="card mb-3 border-primary">
@@ -87,8 +109,11 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
                     </td>
                 </tr>
             </table>
-            <div class="link" align="right">
-                <a href="acteurs.php?acteurs=" class="btn btn-link">lire la suite</a>
+            <div align="right" class="link">
+                <form method="post" action="">
+                    <button type="submit" class="btn btn-link" name="submitProtectpeople">Lire la suite</button>
+                </form>
+                <br />
             </div>
         </div>
     </section>
