@@ -36,17 +36,17 @@ if (isset($_POST['submitDeco'])) {
         ?>
 
     <div align="center">
-        <a href="connexion.php"><img src="../public/img/partenaires/logo.png" alt="logo1" /></a>
+        <img src="../public/img/partenaires/logo.png" alt="logo1" />
         <ul>
             <li><h5><?php echo $userinfo['prenom']; ?><?php echo " "; ?><?php echo $userinfo['nom']; ?>  </h5></li>
             <li>
                 <form method="post" action="">
-                    <button type="submit" name="submitProfil">Paramètres du compte</button>
+                    <button type="submit" class="btn btn-link" name="submitProfil">Paramètres du compte</button>
                 </form>
             </li>
             <li>
                 <form method="post" action="">
-                    <button type="submit" name="submitDeco">Se déconnecter</button>
+                    <button type="submit" class="btn btn-link" name="submitDeco">Se déconnecter</button>
                 </form>
             </li>
         </ul>
