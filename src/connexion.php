@@ -20,7 +20,7 @@ if (isset($_POST['formconnect']))
             $_SESSION['id'] = $userinfo['id'];
             $_SESSION['pseudo'] = $userinfo['pseudo'];
             $_SESSION['mail'] = $userinfo['mail'];
-            header("Location: profil.php?id=".$_SESSION['id']);
+            header("Location: acteurs.php?id=".$_SESSION['id']);
         }
 
         else
