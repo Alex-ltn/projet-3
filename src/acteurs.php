@@ -2,6 +2,14 @@
 
 require_once('../config/db.php');
 
+if (isset($_GET['id']) AND $_GET['id'] > 0)
+{
+    $getid = intval($_GET['id']);
+    $requser = $BDD->prepare('SELECT * FROM membres WHERE id = ?');
+    $requser->execute(array($getid));
+    $userinfo = $requser->fetch();
+}
+
 ?>
 
 <?php require 'layout/header.php' ?>
