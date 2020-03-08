@@ -76,8 +76,6 @@ if(isset($_POST['forminscription']))
 
 <?php require 'layout/header.php' ?>
 
-</header>
-
 <main>
 
 <form method="POST" action="">

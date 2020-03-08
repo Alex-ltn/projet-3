@@ -42,8 +42,6 @@ if(isset($_SESSION['id'])) {
 
 <?php require 'layout/header.php' ?>
 
-</header>
-
 <main>
     <form method="POST" action="">
         <div class="card border-primary mb-3">

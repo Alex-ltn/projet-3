@@ -1,31 +1,11 @@
 <?php
-session_start();
 
 require_once('../config/db.php');
 
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GBAF - Accueil</title>
-    <link rel="stylesheet" href="../fontawesome5/web-fonts-with-css/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body class="connecter">
-<header>
-    <a href="index.php"><img src="../logo/GBAF.png" alt="logo1"></a>
-    <ul class="head_ul alert bg-dark">
-        <li class="text-white"><i class="fas fa-user"></i></li>
-        <li><a href="parametres.php?account=" class="text-white"><i class="fas fa-cog"></i>Paramètres du compte</a></li>
-        <li class="text-white"><a href="deconnexion.php" class="text-white"><i class="fas fa-university"></i>Deconnexion</a></li>
-    </ul>
-</header>
+<?php require 'layout/header.php' ?>
+
 <main>
     <section class="mobile_text jumbotron">
         <h1>Présentation de la GBAF</h1>

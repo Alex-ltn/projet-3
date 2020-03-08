@@ -39,13 +39,6 @@ if(isset($_SESSION['id'])) {
 
 <?php require 'layout/header.php' ?>
 
-        <h4><?php echo $userinfo['prenom']; ?><?php echo " "; ?><?php echo $userinfo['nom']; ?></h4>
-        <a href="deconnexion.php">Se déconnecter</a>
-    </div>
-</header>
-
-<br />
-
 <main>
     <form method="POST" action="">
         <div class="card border-primary mb-3">
@@ -69,6 +62,7 @@ if(isset($_SESSION['id'])) {
                     <input class="form-input form-control" type="password" name="newmdp2" placeholder="Confirmation Mot de passe">
                 </p>
             </div>
+        </div>
             <div align="center">
                 <form method="post" action="">
                     <input type="submit" class="btn btn-outline-danger" value="Mettre à jour">
@@ -77,7 +71,6 @@ if(isset($_SESSION['id'])) {
                 </form>
             </div>
             <?php if(isset($msg)) { echo $msg; } ?>
-        </div>
     </form>
 
             <?php if(isset($msg)) { echo $msg; } ?>

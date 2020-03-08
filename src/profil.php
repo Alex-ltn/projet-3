@@ -23,11 +23,6 @@ if (isset($_POST['submitDeco'])) {
 
 <?php require 'layout/header.php' ?>
 
-        <h4><?php echo $userinfo['prenom']; ?><?php echo " "; ?><?php echo $userinfo['nom']; ?></h4>
-        <a href="deconnexion.php">Se déconnecter</a>
-    </div>
-</header>
-
 <br />
 <main>
 <div method="POST" action="" align="center">
@@ -37,12 +32,14 @@ if (isset($_POST['submitDeco'])) {
                 <label class="h5">Pseudo = <?php echo $userinfo['pseudo']; ?></label><br />
                 <label class="h5">Mail = <?php echo $userinfo['mail']; ?></label><br />
             </div>
+    </div>
+</div>
 
     <?php
         if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
     ?>
 
-            <div>
+            <div align="center">
                 <form method="post" action="">
                   <button type="submit" name="submitPara" class="btn btn-outline-danger">Modifier</button>
                   <button type="submit" name="submitDeco" class="btn btn-outline-dark">Se déconnecter</button>
@@ -54,7 +51,6 @@ if (isset($_POST['submitDeco'])) {
     }
     ?>
 
-    </div>
 </form>
 </main>
 

@@ -1,7 +1,7 @@
 /* ---------- HEADER ---------- */
 
 header img {
-    width: 110px;
+    width: 100px;
     height: auto;
 }
 
@@ -26,6 +26,12 @@ main {
 
 p {
     text-align: justify;
+}
+
+ul {
+    list-style:none;
+    margin-left:0;
+    padding-left:0;
 }
 
 /* ---------- FOOTER ---------- */
