@@ -34,6 +34,25 @@ ul {
     padding-left:0;
 }
 
+main img {
+    width: 200px;
+    height: auto;
+    margin-left: 5px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+main a[href="acteurs.php?acteurs="] {
+    margin-bottom: -20px;
+    margin-top: -20px;
+    margin-right: -15px;
+}
+
+table p {
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
 /* ---------- FOOTER ---------- */
 
 html {
