@@ -19,7 +19,7 @@ if (isset($_POST['submitDsa'])) {
 if (isset($_POST['submitFormation'])) {
     header("Location: formation.php?id=".$_SESSION['id']);
 }
-if (isset($_POST['submitProtect'])) {
+if (isset($_POST['submitProtectpeople'])) {
     header("Location: protectpeople.php?id=".$_SESSION['id']);
 }
 
