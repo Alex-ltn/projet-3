@@ -8,16 +8,16 @@ if (isset($_GET['id']) AND $_GET['id'] > 0)
     $requser = $BDD->prepare('SELECT * FROM membres WHERE id = ?');
     $requser->execute(array($getid));
     $userinfo = $requser->fetch();
+
 }
 
 if (isset($_POST['submitPara'])) {
-    header('Location: parametre.php');
+    header("Location: parametre.php?id=".$_SESSION['id']);
 }
 
-if (isset($_POST['submitDeco'])) {
-    header('Location: deconnexion.php');
+if (isset($_POST['submitBackButton'])) {
+    header("Location: acteurs.php?id=".$_SESSION['id']);
 }
-
 
 ?>
 
@@ -42,7 +42,7 @@ if (isset($_POST['submitDeco'])) {
             <div align="center">
                 <form method="post" action="">
                   <button type="submit" name="submitPara" class="btn btn-outline-danger">Modifier</button>
-                  <button type="submit" name="submitDeco" class="btn btn-outline-dark">Se déconnecter</button>
+                  <button type="submit" name="submitBackButton" class="btn btn-outline-dark">Retour</button>
                 </form>
                 <br />
             </div>
@@ -51,7 +51,6 @@ if (isset($_POST['submitDeco'])) {
     }
     ?>
 
-</form>
 </main>
 
 <?php require 'layout/footer.php' ?>
