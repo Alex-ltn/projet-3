@@ -57,7 +57,7 @@ if (isset($_POST['submitDeco'])) {
     else { ?>
 
         <div align="center">
-            <a href="connexion.php"><img src="../public/img/partenaires/logo.png" alt="logo1" /></a>
+            <img src="../public/img/partenaires/logo.png" alt="logo1" />
             <br /><br />
     <?php }
     ?>
