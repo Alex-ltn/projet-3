@@ -2,3 +2,5 @@
 .idea
 config/db.php
 public/img/
+
+.idea/workspace.xml
